@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Payroll Dashboard</title>
+    <style>
+        body{
+            font-family: Arial;
+            background:#f4f6f9;
+            margin:0;
+        }
+        .navbar{
+            background:#1f3c88;
+            color:white;
+            padding:15px;
+            font-size:20px;
+        }
+        .container{
+            margin:30px;
+        }
+        table{
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+            box-shadow:0 2px 8px rgba(0,0,0,0.1);
+        }
+        th,td{
+            padding:12px;
+            border-bottom:1px solid #ddd;
+            text-align:center;
+        }
+        th{
+            background:#1f3c88;
+            color:white;
+        }
+        .success{ color:green; font-weight:bold; }
+        .failed{ color:red; font-weight:bold; }
+        .btn{
+            padding:10px 20px;
+            background:#1f3c88;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+            margin-bottom:20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">Payroll Processing System</div>
+
+<div class="container">
+
+    <a href="/addEmployee"><button class="btn">Add Employee</button></a>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Employee</th>
+            <th>Amount</th>
+            <th>Status</th>
+        </tr>
+
+        <tr th:each="p : ${payrolls}">
+            <td th:text="${p.id}"></td>
+            <td th:text="${p.employeeId}"></td>
+            <td th:text="${p.amount}"></td>
+            <td th:text="${p.status}"
+                th:classappend="${p.status=='SUCCESS'}?'success':'failed'">
+            </td>
+        </tr>
+
+    </table>
+
+</div>
+</body>
+</html>

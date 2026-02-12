@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Employee</title>
+    <style>
+        body{font-family:Arial;background:#f4f6f9}
+        .form{
+         width:400px;
+         margin:100px auto;
+         background:white;
+         padding:20px;
+         box-shadow:0 2px 8px rgba(0,0,0,0.2)
+        }
+        input{
+         width:100%;
+         padding:10px;
+         margin:10px 0;
+        }
+        button{
+         background:#1f3c88;
+         color:white;
+         padding:10px;
+         border:none;
+         width:100%;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="form">
+    <h2>Add Employee</h2>
+
+    <form action="/employees" method="post">
+        <input name="name" placeholder="Name"/>
+        <input name="type" placeholder="FULL_TIME / CONTRACT"/>
+        <input name="salary" placeholder="Salary"/>
+        <input name="email" placeholder="Email"/>
+        <button type="submit">Save</button>
+    </form>
+
+</div>
+
+</body>
+</html>
